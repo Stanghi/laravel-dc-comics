@@ -11,15 +11,18 @@
                             <p class="card-text">{{ $comic->title }}</p>
                         </div>
                         <div class="d-flex justify-content-around mb-3">
-                            <a href="{{ route('comics.show', $comic) }}" title="Show">
-                                <button class="btn btn-outline-primary"><i class="fa-solid fa-eye"></i></button>
+
+                            <a href="{{ route('comics.show', $comic) }}" title="Show" class="btn btn-outline-primary">
+                                <i class="fa-solid fa-eye"></i>
                             </a>
-                            <a href="#" title="Edit">
-                                <button class="btn btn-outline-primary"><i class="fa-solid fa-pen"></i></button>
+
+                            <a href="#" title="Edit" class="btn btn-outline-primary"><i class="fa-solid fa-pen"></i>
                             </a>
-                            <a href="#" title="Delete">
-                                <button class="btn btn-outline-danger"><i class="fa-solid fa-trash"></i></button>
+
+                            <a href="#" title="Delete" class="btn btn-outline-danger"><i
+                                    class="fa-solid fa-trash"></i>
                             </a>
+
                         </div>
                     </div>
                 </div>
