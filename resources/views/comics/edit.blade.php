@@ -44,9 +44,7 @@
 
             <div class="mb-3">
                 <label for="description" class="form-label">Description</label>
-                <textarea class="form-control" id="description" name="description" rows="5" placeholder="Add description...">
-                    {{ $comic->description }}
-                </textarea>
+                <textarea class="form-control" id="description" name="description" rows="5" placeholder="Add description...">{{ $comic->description }}</textarea>
             </div>
 
             <button type="submit" class="btn btn-primary">Submit

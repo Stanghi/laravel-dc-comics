@@ -2,7 +2,15 @@
 
 @section('content')
     <div class="container">
-        <div class="row row-cols-2 row-cols-md-4 row-cols-lg-6">
+
+        @if (session('deleted'))
+            <div class="alert alert-primary" role="alert">
+                <i class="fa-solid fa-circle-check"></i>
+                {{ session('deleted') }}
+            </div>
+        @endif
+
+        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-6">
             @forelse ($comics as $comic)
                 <div class="col p-3">
                     <div class="card">
