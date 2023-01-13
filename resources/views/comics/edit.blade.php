@@ -50,6 +50,8 @@
             <button type="submit" class="btn btn-primary">Submit
                 <i class="fa-solid fa-file-import ms-1"></i>
             </button>
+
+            @include('partials.form-delete', ['comic' => $comic])
         </form>
     </div>
 @endsection
