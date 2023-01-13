@@ -16,8 +16,8 @@
                                     <i class="fa-solid fa-eye"></i>
                                 </a>
 
-                                <a href="#" title="Edit" class="btn btn-outline-primary"><i
-                                        class="fa-solid fa-pen"></i>
+                                <a href="{{ route('comics.edit', $comic) }}" title="Edit"
+                                    class="btn btn-outline-primary"><i class="fa-solid fa-pen"></i>
                                 </a>
 
                                 <a href="#" title="Delete" class="btn btn-outline-danger"><i

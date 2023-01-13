@@ -39,14 +39,8 @@ class ComicController extends Controller
         $form_data = $request->all();
 
         $new_comic = new Comic();
-        $new_comic->title = $form_data['title'];
-        $new_comic->slug = Comic::generateSlug($new_comic->title);
-        $new_comic->description = $form_data['description'];
-        $new_comic->thumb = $form_data['thumb'];
-        $new_comic->price = $form_data['price'];
-        $new_comic->series = $form_data['series'];
-        $new_comic->sale_date = $form_data['sale_date'];
-        $new_comic->type = $form_data['type'];
+        $form_data['slug'] = Comic::generateSlug($form_data['title']);
+        $new_comic->fill($form_data);
         $new_comic->save();
 
         return redirect()->route('comics.show', $new_comic);
@@ -70,9 +64,9 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Comic $comic)
     {
-        //
+        return view('comics.edit', compact('comic'));
     }
 
     /**
@@ -82,9 +76,18 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Comic $comic)
     {
-        //
+        $form_data = $request->all();
+
+        if ($form_data['title'] != $comic->title) {
+            $form_data['slug'] = Comic::generateSlug(($form_data['title']));
+        } else {
+            $form_data['slug'] = $comic->slug;
+        }
+
+        $comic->update($form_data);
+        return redirect()->route('comics.show', $comic);
     }
 
     /**
