@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ComicRequest;
 use App\Models\Comic;
 use Illuminate\Http\Request;
 
@@ -34,20 +35,8 @@ class ComicController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ComicRequest $request, Comic $comic)
     {
-
-        $request->validate(
-            [
-                'title' => 'required|max:100|min:2',
-                'thumb' => 'required|max:255|min:10',
-                'price' => 'required|max:5|min:2',
-                'series' => 'required|max:50|min:2',
-                'sale_date' => 'required|max:15|min:2',
-                'type' => 'required|max:20|min:2',
-            ]
-        );
-
         $form_data = $request->all();
 
         $new_comic = new Comic();
